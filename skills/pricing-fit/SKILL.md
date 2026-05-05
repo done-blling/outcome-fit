@@ -54,12 +54,13 @@ Tell the user: "I've now discarded the event data from memory. Only the event ty
 
 Take their natural language answer and translate it silently into a `ConditionNode` JSON. Rules for translation:
 
-- Single thing must happen → `{ "event": "<name>" }`
+- Single event must happen → `{ "event": "<name>" }`
 - All of these must happen → `{ "op": "AND", "conditions": [...] }`
 - Any one of these counts → `{ "op": "OR", "conditions": [...] }`
+- Event must NOT happen → `{ "op": "NOT", "condition": { "event": "<name>" } }` — note: `condition` is singular, not an array
 - Event must have a specific value → `{ "event": "<name>", "match": <value> }`
 - Event must exceed a number → `{ "event": "<name>", "gte": <number> }`
-- Nesting is fine for complex cases → combine AND/OR/NOT as needed
+- Nesting: AND/OR take `conditions` (array); NOT takes `condition` (single object, never an array)
 
 Translate silently and move directly to Step 3. Do NOT show the JSON to the user. Do NOT ask for confirmation. Only ask a clarifying question if the description is genuinely ambiguous (missing key information, not just complex).
 
