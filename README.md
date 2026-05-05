@@ -1,36 +1,75 @@
-# done: pricing-fit
+# 🎯 outcome-fit
 
-A Claude Code skill that guides you from raw event data to an outcome-based monetization model in 6 steps.
+> A [Claude Code](https://claude.ai/code) skill that takes your raw event data and tells you whether you're ready to charge on outcomes — and what you'd earn if you did.
 
-## The CAMP Framework
+<!-- GIF screencast here -->
 
-CAMP is a four-dimension readiness framework for outcome-based pricing. Each dimension is scored 1–5; the total determines your phase.
+---
 
-**Consistency:** Do all customers value the same outcomes? Or do outcomes need to be customized, leading to a proliferation of bespoke contracts?
+## Why this exists
 
-**Attribution:** Can you convince customers to give your product credit for delivering the outcome? Or do they believe they drove the outcome, with a small assist from you?
+Outcome-based pricing is the fastest-growing monetization model in B2B SaaS. According to the [2025 State of B2B Monetization](https://www.growthunhinged.com/p/2025-state-of-b2b-monetization) report by Kyle Poyar, more teams than ever want to tie revenue to results — but most don't know if their data actually supports it.
 
-**Measurability:** Can you measure and report on the outcomes in real-time? Or do you require customer reporting, A/B testing and/or a proof of concept?
+`outcome-fit` answers that question in under 5 minutes.
 
-**Predictability:** Can you predict the outcomes your product will achieve with some level of accuracy? Or do outcomes vary significantly from customer to customer?
+---
 
-### Readiness phases
+## What it does
 
-| Total score | Phase | What it means |
-|-------------|-------|---------------|
-| 4–8 | **Measure** | Instrument your product and run outcomes in shadow mode before charging |
-| 9–15 | **Attribute** | Analyse confirmed rates and run a pilot with your most-engaged customers |
-| 16–20 | **Price** | You're ready. Set the price and start signing outcome-based contracts |
+Outcome-based pricing charges customers only when your product delivers a confirmed result: a ticket resolved, a payment collected, a document signed.
 
-## Usage
+`outcome-fit` runs your event data through the **CAMP framework** — four dimensions that determine whether you're ready to price on outcomes — and gives you a score, a phase, and concrete next steps.
 
-Run `/done:pricing-fit` in Claude Code to start the guided setup.
+### 🏕️ The CAMP framework
 
-The skill collects your event data, asks two questions to define the outcome condition, asks for a price, then submits everything to `https://api.donehq.dev/camp` and presents the CAMP analysis.
+| Dimension | Question |
+|-----------|----------|
+| 🔁 **Consistency** | Do all customers value the same outcome, or does it vary per contract? |
+| 🎯 **Attribution** | Can your product take credit for the result, or does the customer claim they drove it? |
+| 📏 **Measurability** | Can you measure outcomes in real-time from your own data? |
+| 📈 **Predictability** | Can you forecast outcome rates accurately enough to price confidently? |
+
+Each dimension is scored 1–5. Your total determines your phase:
+
+| Score | Phase | What it means |
+|-------|-------|---------------|
+| 4–8 | 🔬 **Measure** | Instrument your product and run outcomes in shadow mode |
+| 9–15 | 🔗 **Attribute** | Analyse confirmed rates, run a pilot with your top customers |
+| 16–20 | 💰 **Price** | You're ready — set the price and start signing contracts |
+
+---
+
+## How it works
+
+The skill runs a guided conversation in Claude Code:
+
+1. 📂 **Share your data** — paste a CSV/JSON export or connect a database. The skill auto-detects columns.
+2. 🎯 **Define the outcome** — answer two questions: what starts an outcome, and what makes it successful.
+3. 💵 **Set a price** — one number. The skill submits everything and shows your CAMP score.
+
+**Total time: under 5 minutes.**
+
+---
 
 ## Installation
 
-```bash
-/plugin marketplace add done-billing/outcome-fit
-/plugin install pricing-fit@done
+In Claude Code, run:
+
 ```
+/plugin marketplace add done-billing/outcome-fit
+/plugin install outcome-fit@pricing-fit
+/reload-plugins
+```
+
+Then start the analysis:
+
+```
+/outcome-fit:outcome-fit
+```
+
+---
+
+## Requirements
+
+- [Claude Code](https://claude.ai/code) v2.0 or later
+- A sample of your product's event log (CSV, JSON, or a connected database)
