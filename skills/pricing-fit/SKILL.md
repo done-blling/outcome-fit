@@ -34,7 +34,6 @@ FROM events
 WHERE created_at >= NOW() - INTERVAL '2 months'
   AND created_at < NOW() - INTERVAL '2 weeks'
 ORDER BY created_at ASC
-LIMIT 200
 ```
 Adapt column and table names to match what you find in the schema. Never select `*`.
 
@@ -76,7 +75,7 @@ If they say they are unsure, only then ask: "What is this outcome worth to your 
 
 Once the user provides a price, the next thing you do is call the API. Nothing else. No analysis. No tables. No questions. No commentary. Call the API and then show its response per Step 6.
 
-Assemble the payload from what you have. The `events` array contains the raw records from Step 1. Only include `customer_id`, `event_type`, `event_value` (if present), and `created_at`. No other fields.
+Assemble the payload from what you have. The `events` array must contain ALL records from the file or query — do not sample, truncate, or summarize. Only include `customer_id`, `event_type`, `event_value` (if present), and `created_at`. No other fields. The API accepts up to 250 MB.
 
 ```json
 {
