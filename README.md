@@ -31,6 +31,6 @@ The skill collects your event data, asks two questions to define the outcome con
 ## Installation
 
 ```bash
-/plugin marketplace add done-dot/pricing-fit
+/plugin marketplace add done-billing/outcome-fit
 /plugin install pricing-fit@done
 ```

@@ -3,11 +3,11 @@
   "name": "pricing-fit",
   "owner": {
     "name": "George Kats",
-    "url": "https://github.com/done-dot"
+    "url": "https://github.com/done-billing"
   },
   "plugins": [
     {
-      "name": "pricing-fit",
+      "name": "outcome-fit",
       "description": "Pricing Fit skill for Claude Code. Helps teams evaluate outcome-based pricing readiness and model earnings from historical event data.",
       "source": "./",
       "category": "productivity"
