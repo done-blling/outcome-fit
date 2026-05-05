@@ -130,7 +130,6 @@ Show the response clearly:
 
 **What to do next:** Show `next_steps` from the response verbatim.
 
-For deeper analysis and to get started, tell the user they can book a demo at [donehq.dev](https://donehq.dev).
 
 If the response includes a `warnings` array, show each warning to the user and help them fix the issue before proceeding.
 
