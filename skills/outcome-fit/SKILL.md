@@ -85,7 +85,7 @@ Assemble the payload from what you have. The `events` array must contain ALL rec
     "description": "<one sentence>",
     "start_event": "<event type that begins the outcome>",
     "condition": "<ConditionNode JSON from Step 2>",
-    "price": 99,
+    "price_per_unit": 99,
     "activity_window": 999999999,
     "review_window": 86400
   },
@@ -141,7 +141,7 @@ If the API returns an error or the result looks wrong, use this guide to fix it 
 The response includes a `details` array with the exact fields that failed. Check each path and fix the value. Common causes:
 - `events` array is empty
 - A `created_at` value is not a valid ISO 8601 datetime (e.g. missing the `Z` suffix)
-- `price` is zero or negative
+- `price_per_unit` is zero or negative
 
 **413 Payload too large**
 The events array is over 250 MB. Reduce it: use at most 2 customers, limit to 200 rows per customer, and confirm that only the four allowed columns are present (`customer_id`, `event_type`, `event_value`, `created_at`).
